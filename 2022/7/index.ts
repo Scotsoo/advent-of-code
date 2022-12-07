@@ -1,7 +1,5 @@
 import { readFileSync } from 'fs';
 const lines = readFileSync('./data.txt', 'utf-8').split('\n')
-const FILES_CONST = 'FILES_CONST';
-const TOTAL_FILE_CONST = 'TOTAL_FILE_CONST';
 class Directory {
   children: {[key: string]: Directory}
   files: {[key: string]: number}
