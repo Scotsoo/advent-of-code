@@ -88,12 +88,7 @@ function part1() {
 function part2() {
   const base = maptoTree();
   const needs = 30000000 - base.diskRemaining;
-  console.log({
-    needs,
-    30000000: '', 
-    dr: base.diskRemaining
-  })
-  let bestNeeds = 99999999
+  let bestNeeds = 99999999999
   const getBestMatchedFileToDelete = (dir: Directory) => {
     console.log(dir.fileSize, needs, dir.fileSize < bestNeeds, dir.fileSize > needs)
     if (dir.fileSize > needs && dir.fileSize < bestNeeds) {
