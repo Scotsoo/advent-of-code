@@ -84,7 +84,7 @@ export function part1(
   return lowestLocNumber;
 }
 
-export async function part2() {
+export function part2() {
   let idx = 0;
   let current = 0;
   const itemsCache = getHeaderObj();
@@ -122,6 +122,4 @@ export async function part2() {
 }
 
 // console.log("part1", part1());
-(async () => {
-  console.log("part2", await part2());
-})();
+console.log("part2", part2());
