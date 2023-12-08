@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 
 const inputDataLines = readFileSync("./data.txt", "utf-8").split("\n");
 const instructions: ("L" | "R")[] = inputDataLines.shift()?.split("") as (
@@ -32,7 +32,7 @@ function part1(data: string[] = inputDataLines): number {
   return idx;
 }
 
-function leastCommonMultiple(values: number[]) {
+function lowestCommonMultiple(values: number[]) {
   function gcd(a: number, b: number): number {
     // greatest common divisor
     return !b ? a : gcd(b, a % b);
@@ -52,7 +52,6 @@ function leastCommonMultiple(values: number[]) {
 
 function part2(data: string[] = inputDataLines): number {
   const map = buildMap(data);
-  writeFileSync("out.json", JSON.stringify(map, null, 2));
   const currentNodes = Object.keys(map).filter((f) => f.endsWith("A"));
   const multipliers = currentNodes.map((current) => {
     let idx = 0;
@@ -62,7 +61,7 @@ function part2(data: string[] = inputDataLines): number {
 
     return idx;
   });
-  return leastCommonMultiple(multipliers);
+  return lowestCommonMultiple(multipliers);
 }
 
 console.log("part1", part1());
